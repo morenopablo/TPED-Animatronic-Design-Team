@@ -41,50 +41,6 @@ void customFunction() {
   }
 }
 
-void moveEyes() {
-  // Move to the right
-  digitalWrite(LEDPIN, LOW);
-
-  for (uint16_t pulselen = EYEMIN; pulselen < EYEMAX; pulselen++) {
-    pwm.setPWM(EYESERVO, 0, pulselen);
-    delay(4);
-  }
-
-  // Move to the left
-  for (uint16_t pulselen = EYEMAX; pulselen > EYEMIN; pulselen--) {
-    pwm.setPWM(EYESERVO, 0, pulselen);
-    delay(4);
-  }
-
-  // Return to the middle
-  pwm.setPWM(EYESERVO, 0, EYEMID);
-  delay(4); // Add a delay to allow the servo to settle in the middle position
-  digitalWrite(LEDPIN, HIGH);
-}
-
-void moveEyebrows() {
-  // Move to the right
-  
-
-  for (uint16_t pulselen = 275; pulselen < 425; pulselen++) {
-    pwm.setPWM(EYEBROWRIGHT, 0, pulselen);
-    pwm.setPWM(EYEBROWLEFT, 0, pulselen);
-    delay(4);
-  }
-
-  // Move to the left
-  for (uint16_t pulselen = 425; pulselen > 275; pulselen--) {
-    pwm.setPWM(EYEBROWRIGHT, 0, pulselen);
-    pwm.setPWM(EYEBROWLEFT, 0, pulselen);
-    delay(4);
-  }
-
-  // Return to the middle
-  pwm.setPWM(EYEBROWRIGHT, 0, EYEMID);
-  pwm.setPWM(EYEBROWLEFT, 0, EYEMID);
-  delay(4); // Add a delay to allow the servo to settle in the middle position
-  
-}
 
 void moveEyesAndEyebrows() {
   digitalWrite(LEDPIN, LOW);
